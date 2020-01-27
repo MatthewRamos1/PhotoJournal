@@ -17,6 +17,7 @@
 		0C51778E23DEA01800DCBD4B /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51778D23DEA01800DCBD4B /* JournalCell.swift */; };
 		0C51779023DEA4D400DCBD4B /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51778F23DEA4D400DCBD4B /* JournalEntry.swift */; };
 		0C5CFF3123DF3F7F003AC357 /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */; };
+		0C5CFF3423DF51E9003AC357 /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		0C51778D23DEA01800DCBD4B /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		0C51778F23DEA4D400DCBD4B /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
+		0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				0C51777523DE9D0000DCBD4B /* PhotoJournal */,
+				0C5CFF3223DF5194003AC357 /* Controllers */,
 				0C51777423DE9D0000DCBD4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,7 +69,6 @@
 			children = (
 				0C51777623DE9D0000DCBD4B /* AppDelegate.swift */,
 				0C51777823DE9D0000DCBD4B /* SceneDelegate.swift */,
-				0C51777A23DE9D0000DCBD4B /* ViewController.swift */,
 				0C51778D23DEA01800DCBD4B /* JournalCell.swift */,
 				0C51778F23DEA4D400DCBD4B /* JournalEntry.swift */,
 				0C51777C23DE9D0000DCBD4B /* Main.storyboard */,
@@ -76,6 +78,15 @@
 				0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */,
 			);
 			path = PhotoJournal;
+			sourceTree = "<group>";
+		};
+		0C5CFF3223DF5194003AC357 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C51777A23DE9D0000DCBD4B /* ViewController.swift */,
+				0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 				0C51777B23DE9D0000DCBD4B /* ViewController.swift in Sources */,
 				0C51777723DE9D0000DCBD4B /* AppDelegate.swift in Sources */,
 				0C51779023DEA4D400DCBD4B /* JournalEntry.swift in Sources */,
+				0C5CFF3423DF51E9003AC357 /* AddEntryViewController.swift in Sources */,
 				0C5CFF3123DF3F7F003AC357 /* UIImage + Extensions.swift in Sources */,
 				0C51777923DE9D0000DCBD4B /* SceneDelegate.swift in Sources */,
 				0C51778E23DEA01800DCBD4B /* JournalCell.swift in Sources */,

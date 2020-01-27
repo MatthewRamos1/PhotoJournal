@@ -181,20 +181,28 @@
             </objects>
             <point key="canvasLocation" x="2253.6231884057975" y="651.5625"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Entry View Controller-->
         <scene sceneID="UcL-Da-MUQ">
             <objects>
-                <viewController id="seL-qb-EN5" sceneMemberID="viewController">
+                <viewController id="seL-qb-EN5" customClass="AddEntryViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OXq-V7-BKX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24V-6b-Zcf">
-                                <rect key="frame" x="0.0" y="705" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="759" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" image="photo.fill.on.rectangle.fill" catalog="system" id="gEu-Ps-NTb"/>
+                                    <barButtonItem title="Item" image="photo.fill.on.rectangle.fill" catalog="system" id="gEu-Ps-NTb" userLabel="Add From Gallery">
+                                        <connections>
+                                            <action selector="addGalleryImagePressed:" destination="seL-qb-EN5" id="XMM-qq-kDK"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rpT-Vn-Y8x"/>
-                                    <barButtonItem title="Item" image="camera" catalog="system" id="ylX-cF-ggz"/>
+                                    <barButtonItem title="Item" image="camera" catalog="system" id="ylX-cF-ggz" userLabel="Add From Camera">
+                                        <connections>
+                                            <action selector="addCameraImagePressed:" destination="seL-qb-EN5" id="xF9-Mk-3qN"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVG-Cg-uun">
@@ -225,6 +233,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0KJ-2a-xf7"/>
                     </view>
+                    <connections>
+                        <outlet property="entryImage" destination="eVG-Cg-uun" id="p6X-Fu-8rP"/>
+                        <outlet property="journalEntryTextView" destination="WSG-1F-seG" id="Gh6-on-yIw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYg-YN-6Nj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
