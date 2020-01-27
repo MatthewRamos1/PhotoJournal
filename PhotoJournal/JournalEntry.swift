@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct JournalEntry {
+typealias Writeable = Codable & Equatable
+
+struct JournalEntry: Writeable {
     let imageData: Data
     let entryName: String
     let date: Date

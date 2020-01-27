@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import DataPersistence
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var dataPersistence = DataPersistence<JournalEntry>(filename: "imageEntries.plist")
     
     var entries = [JournalEntry]()
     
