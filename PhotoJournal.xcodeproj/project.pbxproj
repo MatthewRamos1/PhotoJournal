@@ -14,6 +14,7 @@
 		0C51778023DE9D0500DCBD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C51777F23DE9D0500DCBD4B /* Assets.xcassets */; };
 		0C51778323DE9D0500DCBD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C51778123DE9D0500DCBD4B /* LaunchScreen.storyboard */; };
 		0C51778C23DE9DE600DCBD4B /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 0C51778B23DE9DE600DCBD4B /* DataPersistence */; };
+		0C51778E23DEA01800DCBD4B /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51778D23DEA01800DCBD4B /* JournalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0C51777F23DE9D0500DCBD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C51778223DE9D0500DCBD4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C51778423DE9D0500DCBD4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C51778D23DEA01800DCBD4B /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				0C51777623DE9D0000DCBD4B /* AppDelegate.swift */,
 				0C51777823DE9D0000DCBD4B /* SceneDelegate.swift */,
 				0C51777A23DE9D0000DCBD4B /* ViewController.swift */,
+				0C51778D23DEA01800DCBD4B /* JournalCell.swift */,
 				0C51777C23DE9D0000DCBD4B /* Main.storyboard */,
 				0C51777F23DE9D0500DCBD4B /* Assets.xcassets */,
 				0C51778123DE9D0500DCBD4B /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 				0C51777B23DE9D0000DCBD4B /* ViewController.swift in Sources */,
 				0C51777723DE9D0000DCBD4B /* AppDelegate.swift in Sources */,
 				0C51777923DE9D0000DCBD4B /* SceneDelegate.swift in Sources */,
+				0C51778E23DEA01800DCBD4B /* JournalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
