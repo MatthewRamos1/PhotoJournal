@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1A656123DF89ED00BC53C6 /* UIViewController + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A656023DF89ED00BC53C6 /* UIViewController + Alerts.swift */; };
 		0C51777723DE9D0000DCBD4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51777623DE9D0000DCBD4B /* AppDelegate.swift */; };
 		0C51777923DE9D0000DCBD4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51777823DE9D0000DCBD4B /* SceneDelegate.swift */; };
 		0C51777B23DE9D0000DCBD4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51777A23DE9D0000DCBD4B /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C1A656023DF89ED00BC53C6 /* UIViewController + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alerts.swift"; sourceTree = "<group>"; };
 		0C51777323DE9D0000DCBD4B /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C51777623DE9D0000DCBD4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C51777823DE9D0000DCBD4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				0C51778123DE9D0500DCBD4B /* LaunchScreen.storyboard */,
 				0C51778423DE9D0500DCBD4B /* Info.plist */,
 				0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */,
+				0C1A656023DF89ED00BC53C6 /* UIViewController + Alerts.swift */,
 			);
 			path = PhotoJournal;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				0C51779023DEA4D400DCBD4B /* JournalEntry.swift in Sources */,
 				0C5CFF3423DF51E9003AC357 /* AddEntryViewController.swift in Sources */,
 				0C5CFF3123DF3F7F003AC357 /* UIImage + Extensions.swift in Sources */,
+				0C1A656123DF89ED00BC53C6 /* UIViewController + Alerts.swift in Sources */,
 				0C51777923DE9D0000DCBD4B /* SceneDelegate.swift in Sources */,
 				0C51778E23DEA01800DCBD4B /* JournalCell.swift in Sources */,
 			);
