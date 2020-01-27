@@ -9,14 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var entries = [JournalEntry]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        collectionView.dataSource = self
     }
-
-
+    
+    
 }
 
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        entries.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "journalCell", for: indexPath) as? JournalCell else {
+            fatalError("Error: Could not downcast to JournalCell")
+        }
+        let entry = entries[indexPath.row]
+        cell.configureCell(journalEntry: entry)
+        return cell
+    }
+    
+    
+}

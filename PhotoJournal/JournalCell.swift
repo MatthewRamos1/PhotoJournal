@@ -44,5 +44,7 @@ class JournalCell: UICollectionViewCell {
             return
         }
         imageView.image = image
+        entryNameLabel.text = journalEntry.entryName
+        dateNameLabel.text = journalEntry.date.description
     }
 }
