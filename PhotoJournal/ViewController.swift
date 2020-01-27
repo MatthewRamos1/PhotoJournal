@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     private var dataPersistence = DataPersistence<JournalEntry>(filename: "imageEntries.plist")
     
     var entries = [JournalEntry]()
+    private var selectedImage: UIImage? {
+        didSet {
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,3 +46,5 @@ extension ViewController: UICollectionViewDataSource {
     
     
 }
+
+
