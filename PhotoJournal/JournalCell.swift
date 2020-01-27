@@ -9,7 +9,7 @@
 import UIKit
 
 protocol JournalCellDelegate: AnyObject {
-    func didLongPress(entry: JournalEntry)
+    func didLongPress(cell: JournalCell)
 }
 
 class JournalCell: UICollectionViewCell {

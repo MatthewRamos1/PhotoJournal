@@ -40,8 +40,22 @@ extension ViewController: UICollectionViewDataSource {
             fatalError("Error: Could not downcast to JournalCell")
         }
         let entry = entries[indexPath.row]
+        cell.delegate = self
         cell.configureCell(journalEntry: entry)
         return cell
+    }
+    
+    
+}
+
+extension ViewController: JournalCellDelegate {
+    func didLongPress(cell: JournalCell) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        present(alertController, animated: true)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
     }
     
     
