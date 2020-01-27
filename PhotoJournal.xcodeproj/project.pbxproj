@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		0C51777E23DE9D0000DCBD4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C51777C23DE9D0000DCBD4B /* Main.storyboard */; };
 		0C51778023DE9D0500DCBD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C51777F23DE9D0500DCBD4B /* Assets.xcassets */; };
 		0C51778323DE9D0500DCBD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C51778123DE9D0500DCBD4B /* LaunchScreen.storyboard */; };
+		0C51778C23DE9DE600DCBD4B /* DataPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 0C51778B23DE9DE600DCBD4B /* DataPersistence */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C51778C23DE9DE600DCBD4B /* DataPersistence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = PhotoJournal;
+			packageProductDependencies = (
+				0C51778B23DE9DE600DCBD4B /* DataPersistence */,
+			);
 			productName = PhotoJournal;
 			productReference = 0C51777323DE9D0000DCBD4B /* PhotoJournal.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = 0C51776A23DE9D0000DCBD4B;
+			packageReferences = (
+				0C51778A23DE9DE600DCBD4B /* XCRemoteSwiftPackageReference "DataPersistence" */,
+			);
 			productRefGroup = 0C51777423DE9D0000DCBD4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -338,6 +346,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0C51778A23DE9DE600DCBD4B /* XCRemoteSwiftPackageReference "DataPersistence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/DataPersistence";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0C51778B23DE9DE600DCBD4B /* DataPersistence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C51778A23DE9DE600DCBD4B /* XCRemoteSwiftPackageReference "DataPersistence" */;
+			productName = DataPersistence;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C51776B23DE9D0000DCBD4B /* Project object */;
 }
