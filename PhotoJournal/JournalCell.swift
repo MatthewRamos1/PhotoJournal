@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol JournalCellDelegate: AnyObject {
+    func didLongPress(entry: JournalEntry)
+}
+
 class JournalCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var entryNameLabel: UILabel!
     @IBOutlet weak var dateNameLabel: UILabel!
+    
+    weak var delegate: JournalCellDelegate?
     
     
     private lazy var longPressGesture: UILongPressGestureRecognizer =   {
