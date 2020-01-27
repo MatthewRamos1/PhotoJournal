@@ -78,6 +78,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="251" height="211"/>
+                                        <connections>
+                                            <outlet property="dateNameLabel" destination="wM6-s5-jkb" id="KGJ-Lh-bGO"/>
+                                            <outlet property="entryNameLabel" destination="ATo-e4-SKd" id="VWE-5b-AQy"/>
+                                            <outlet property="imageView" destination="1UQ-wf-tbE" id="nju-mG-JpG"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
