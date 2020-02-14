@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eYf-zm-3Fk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eYf-zm-3Fk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -208,34 +208,42 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVG-Cg-uun">
                                 <rect key="frame" x="0.0" y="338" width="414" height="421"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WSG-1F-seG">
-                                <rect key="frame" x="0.0" y="20" width="414" height="310"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Photo Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IE4-fD-5ur">
+                                <rect key="frame" x="20" y="49" width="374" height="281"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter photo description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lab-Ep-JYN">
+                                <rect key="frame" x="20" y="20" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="WSG-1F-seG" firstAttribute="trailing" secondItem="0KJ-2a-xf7" secondAttribute="trailing" id="1Rl-oD-O8C"/>
                             <constraint firstItem="24V-6b-Zcf" firstAttribute="trailing" secondItem="0KJ-2a-xf7" secondAttribute="trailing" id="Avt-pT-WKs"/>
-                            <constraint firstItem="eVG-Cg-uun" firstAttribute="top" secondItem="WSG-1F-seG" secondAttribute="bottom" constant="8" id="JFg-CD-V9s"/>
-                            <constraint firstItem="WSG-1F-seG" firstAttribute="top" secondItem="0KJ-2a-xf7" secondAttribute="top" constant="20" id="N01-R7-3zH"/>
+                            <constraint firstItem="lab-Ep-JYN" firstAttribute="top" secondItem="0KJ-2a-xf7" secondAttribute="top" constant="20" id="MAr-WW-p8k"/>
+                            <constraint firstItem="IE4-fD-5ur" firstAttribute="top" secondItem="lab-Ep-JYN" secondAttribute="bottom" constant="8" id="O7E-z8-mw4"/>
+                            <constraint firstItem="lab-Ep-JYN" firstAttribute="leading" secondItem="0KJ-2a-xf7" secondAttribute="leading" constant="20" id="SLx-a1-6sQ"/>
+                            <constraint firstItem="0KJ-2a-xf7" firstAttribute="trailing" secondItem="IE4-fD-5ur" secondAttribute="trailing" constant="20" id="XNN-AV-3QR"/>
+                            <constraint firstItem="eVG-Cg-uun" firstAttribute="top" secondItem="IE4-fD-5ur" secondAttribute="bottom" constant="8" id="Znk-f4-n9H"/>
                             <constraint firstItem="24V-6b-Zcf" firstAttribute="leading" secondItem="0KJ-2a-xf7" secondAttribute="leading" id="Zqe-2y-ZEL"/>
+                            <constraint firstItem="0KJ-2a-xf7" firstAttribute="trailing" secondItem="lab-Ep-JYN" secondAttribute="trailing" constant="20" id="bAf-VX-UJs"/>
                             <constraint firstItem="eVG-Cg-uun" firstAttribute="leading" secondItem="0KJ-2a-xf7" secondAttribute="leading" id="eHY-oi-zCt"/>
                             <constraint firstItem="eVG-Cg-uun" firstAttribute="trailing" secondItem="0KJ-2a-xf7" secondAttribute="trailing" id="tY1-7c-ynH"/>
                             <constraint firstItem="24V-6b-Zcf" firstAttribute="top" secondItem="eVG-Cg-uun" secondAttribute="bottom" symbolic="YES" id="tzi-Bu-meo"/>
                             <constraint firstItem="24V-6b-Zcf" firstAttribute="bottom" secondItem="0KJ-2a-xf7" secondAttribute="bottom" id="uem-36-ug3"/>
+                            <constraint firstItem="IE4-fD-5ur" firstAttribute="leading" secondItem="0KJ-2a-xf7" secondAttribute="leading" constant="20" id="uht-yY-GmU"/>
                             <constraint firstItem="eVG-Cg-uun" firstAttribute="height" secondItem="OXq-V7-BKX" secondAttribute="height" multiplier="0.5" id="xLJ-GJ-n7Z"/>
-                            <constraint firstItem="WSG-1F-seG" firstAttribute="leading" secondItem="0KJ-2a-xf7" secondAttribute="leading" id="zoP-py-CiR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0KJ-2a-xf7"/>
                     </view>
                     <connections>
                         <outlet property="entryImage" destination="eVG-Cg-uun" id="p6X-Fu-8rP"/>
-                        <outlet property="journalEntryTextView" destination="WSG-1F-seG" id="Gh6-on-yIw"/>
+                        <outlet property="entryTextView" destination="IE4-fD-5ur" id="2ss-Lx-8Fn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYg-YN-6Nj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

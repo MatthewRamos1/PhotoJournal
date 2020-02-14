@@ -13,9 +13,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var dataPersistence = DataPersistence<JournalEntry>(filename: "imageEntries.plist")
+    private let dataPersistence = DataPersistence<JournalEntry>(filename: "images.plist")
     
-    var entries = [JournalEntry]()
+    var entries = [JournalEntry]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     private var selectedImage: UIImage? {
         didSet {
             
@@ -25,6 +29,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadEntries()
+    }
+    
+    func loadEntries() {
+        do {
+            try entries = dataPersistence.loadItems()
+        } catch {
+            fatalError("Couldnt load")
+        }
+        
+        
     }
     
     
@@ -57,8 +75,16 @@ extension ViewController: JournalCellDelegate {
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
     }
-    
-    
+}
+
+extension ViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Could not find image")
+        }
+        selectedImage = image
+    }
 }
 
 

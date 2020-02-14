@@ -7,47 +7,75 @@
 //
 
 import UIKit
+import AVFoundation
+import DataPersistence
 
 class AddEntryViewController: UIViewController {
     
     @IBOutlet weak var journalEntryTextView: UITextView!
     @IBOutlet weak var entryImage: UIImageView!
+    @IBOutlet weak var entryTextView: UITextView!
     
     private var imagePickerController = UIImagePickerController()
+    private let dataPersistence = DataPersistence<JournalEntry>(filename: "images.plist")
     private var selectedImage: UIImage? {
         didSet {
-            appendNewPhotoToJournal()
+            saveNewPhoto()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePickerController.delegate = self
     }
     
-    private func appendNewPhotoToJournal() {
+    func createJournalEntry(image: UIImage) -> JournalEntry? {
+        guard let image = selectedImage else {
+            return nil
+        }
+        let size = UIScreen.main.bounds.size
+        let rect = AVMakeRect(aspectRatio: image.size, insideRect: CGRect(origin: CGPoint.zero, size: size))
+        let resizeImage = image.resizeImage(to: rect.size.width, height: rect.size.height)
+        guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
+            return nil
+        }
+        let journalEntry = JournalEntry(imageData: resizedImageData, entryName: "", date: Date())
+        return journalEntry
+    }
+    
+    private func saveNewPhoto() {
+        guard let image = selectedImage else {
+            fatalError("Couldn't access image, check save function")
+        }
+        guard let journalEntry = createJournalEntry(image: image) else {
+            fatalError("Couldn't access ImageObject, check save function")
+        }
+        do {
+            try dataPersistence.createItem(journalEntry)
+            print("item was saved")
+        } catch {
+            fatalError("Couldn't create item, check save function")
+        }
+        
         
     }
     private func setImageController() {
         imagePickerController.sourceType = .photoLibrary
-        
+        present(imagePickerController, animated: true)
     }
     
     @IBAction func addGalleryImagePressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController()
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { [weak self] (alertAction) in
-            self?.setImageController()
-        }
-        alertController.addAction(photoLibraryAction)
-        present(imagePickerController, animated: true)
+        setImageController()
     }
     
     @IBAction func addCameraImagePressed(_ sender: UIBarButtonItem) {
     }
     
     
+    
 }
 
-extension AddEntryViewController: UIImagePickerControllerDelegate {
+extension AddEntryViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
