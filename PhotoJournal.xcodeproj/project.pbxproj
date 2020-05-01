@@ -19,6 +19,7 @@
 		0C51779023DEA4D400DCBD4B /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C51778F23DEA4D400DCBD4B /* JournalEntry.swift */; };
 		0C5CFF3123DF3F7F003AC357 /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */; };
 		0C5CFF3423DF51E9003AC357 /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */; };
+		0C9F557C245BA55D00BDB7F9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		0C51778F23DEA4D400DCBD4B /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
+		0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				0C51777A23DE9D0000DCBD4B /* ViewController.swift */,
 				0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */,
+				0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				0C1A656123DF89ED00BC53C6 /* UIViewController + Alerts.swift in Sources */,
 				0C51777923DE9D0000DCBD4B /* SceneDelegate.swift in Sources */,
 				0C51778E23DEA01800DCBD4B /* JournalCell.swift in Sources */,
+				0C9F557C245BA55D00BDB7F9 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

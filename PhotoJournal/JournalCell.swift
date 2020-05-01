@@ -29,7 +29,6 @@ class JournalCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 20.0
         backgroundColor = .green
         addGestureRecognizer(longPressGesture)
     }

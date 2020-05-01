@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eYf-zm-3Fk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eYf-zm-3Fk">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="1048" y="117"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="p5A-wq-UVX">
             <objects>
-                <tableViewController id="3Ja-ZE-yer" sceneMemberID="viewController">
+                <tableViewController id="3Ja-ZE-yer" customClass="SettingsViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YGP-0A-eFL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
                         <sections>
                             <tableViewSection headerTitle="Settings" id="I1x-NT-vNr">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="ChI-3S-GbI" detailTextLabel="adG-e2-cPQ" style="IBUITableViewCellStyleValue1" id="aD7-IJ-4wS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsViewCell" textLabel="ChI-3S-GbI" detailTextLabel="adG-e2-cPQ" style="IBUITableViewCellStyleValue1" id="aD7-IJ-4wS">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aD7-IJ-4wS" id="g5e-w4-E39">
@@ -144,10 +144,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="T1t-Hf-BeT" detailTextLabel="2aB-hS-agS" style="IBUITableViewCellStyleValue1" id="4oC-fR-BS1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsViewCell2" textLabel="T1t-Hf-BeT" detailTextLabel="2aB-hS-agS" style="IBUITableViewCellStyleValue1" id="4oC-fR-BS1">
                                         <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4oC-fR-BS1" id="oHr-TZ-KtM">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4oC-fR-BS1" id="oHr-TZ-KtM">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -176,6 +176,10 @@
                             <outlet property="delegate" destination="3Ja-ZE-yer" id="qnJ-qR-IF2"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="backgroundColorLabel" destination="2aB-hS-agS" id="bTp-6E-VwW"/>
+                        <outlet property="scrollDirectionLabel" destination="adG-e2-cPQ" id="Zx8-mB-QtM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXR-oO-nwo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -270,10 +274,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera" catalog="system" width="64" height="48"/>
-        <image name="gear" catalog="system" width="64" height="58"/>
-        <image name="photo.fill" catalog="system" width="64" height="46"/>
-        <image name="photo.fill.on.rectangle.fill" catalog="system" width="64" height="48"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
+        <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="98"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
