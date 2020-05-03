@@ -20,6 +20,7 @@
 		0C5CFF3123DF3F7F003AC357 /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */; };
 		0C5CFF3423DF51E9003AC357 /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */; };
 		0C9F557C245BA55D00BDB7F9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */; };
+		0C9F557E245EA55700BDB7F9 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F557D245EA55700BDB7F9 /* Date + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
 		0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0C9F557D245EA55700BDB7F9 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				0C51777523DE9D0000DCBD4B /* PhotoJournal */,
 				0C5CFF3223DF5194003AC357 /* Controllers */,
+				0C9F557F245EA56B00BDB7F9 /* Extensions */,
 				0C51777423DE9D0000DCBD4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,8 +82,6 @@
 				0C51777F23DE9D0500DCBD4B /* Assets.xcassets */,
 				0C51778123DE9D0500DCBD4B /* LaunchScreen.storyboard */,
 				0C51778423DE9D0500DCBD4B /* Info.plist */,
-				0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */,
-				0C1A656023DF89ED00BC53C6 /* UIViewController + Alerts.swift */,
 			);
 			path = PhotoJournal;
 			sourceTree = "<group>";
@@ -93,6 +94,16 @@
 				0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0C9F557F245EA56B00BDB7F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C5CFF3023DF3F7F003AC357 /* UIImage + Extensions.swift */,
+				0C9F557D245EA55700BDB7F9 /* Date + Extensions.swift */,
+				0C1A656023DF89ED00BC53C6 /* UIViewController + Alerts.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C51777B23DE9D0000DCBD4B /* ViewController.swift in Sources */,
+				0C9F557E245EA55700BDB7F9 /* Date + Extensions.swift in Sources */,
 				0C51777723DE9D0000DCBD4B /* AppDelegate.swift in Sources */,
 				0C51779023DEA4D400DCBD4B /* JournalEntry.swift in Sources */,
 				0C5CFF3423DF51E9003AC357 /* AddEntryViewController.swift in Sources */,

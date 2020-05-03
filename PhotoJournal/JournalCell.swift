@@ -50,6 +50,6 @@ class JournalCell: UICollectionViewCell {
         }
         imageView.image = image
         entryNameLabel.text = journalEntry.entryName
-        dateNameLabel.text = journalEntry.date.description
+        dateNameLabel.text = journalEntry.date.dateFormatter()
     }
 }
