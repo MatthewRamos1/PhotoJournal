@@ -49,31 +49,32 @@ class AddEntryViewController: UIViewController {
             showAlert(title: "Missing Description", message: "Please fill out the necessary field.")
             return
         }
-        guard let image = selectedImage else {
-            fatalError("Couldn't access image, check save function")
+        guard let image = selectedImage, let journalEntry = createJournalEntry(image: image, description: description) else {
+            fatalError("Couldn't create journalEntry, check save function")
         }
-        guard let journalEntry = createJournalEntry(image: image, description: description) else {
-            fatalError("Couldn't access ImageObject, check save function")
-        }
+       
         do {
             try dataPersistence.createItem(journalEntry)
-            print("item was saved")
+            dismiss(animated: true)
+            showAlert(title: "Success", message: "Item was saved")
+            entryTextField.text = ""
         } catch {
             fatalError("Couldn't create item, check save function")
         }
         
         
     }
-    private func setImageController() {
+    
+    @IBAction func addGalleryImagePressed(_ sender: UIBarButtonItem) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true)
     }
     
-    @IBAction func addGalleryImagePressed(_ sender: UIBarButtonItem) {
-        setImageController()
-    }
-    
     @IBAction func addCameraImagePressed(_ sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePickerController.sourceType = .camera
+            present(imagePickerController, animated: true)
+        }
     }
     
     

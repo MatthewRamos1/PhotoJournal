@@ -37,13 +37,9 @@ class ViewController: UIViewController {
         do {
             try entries = dataPersistence.loadItems()
         } catch {
-            fatalError("Couldnt load")
+            fatalError("Couldnt load entries")
         }
-        
-        
     }
-    
-    
 }
 
 extension ViewController: UICollectionViewDataSource {
