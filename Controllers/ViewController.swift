@@ -52,7 +52,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        40
+        entries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,6 +60,8 @@ extension ViewController: UICollectionViewDataSource {
             fatalError("Error: Could not downcast to JournalCell")
         }
         cell.delegate = self
+        let entry = entries[indexPath.row]
+        cell.configureCell(journalEntry: entry)
         return cell
     }
 }

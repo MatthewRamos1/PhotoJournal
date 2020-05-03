@@ -29,7 +29,7 @@ class JournalCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = .green
+        backgroundColor = .systemBackground
         addGestureRecognizer(longPressGesture)
     }
     
