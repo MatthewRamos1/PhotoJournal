@@ -29,7 +29,7 @@ class AddEntryViewController: UIViewController {
         imagePickerController.delegate = self
     }
     
-    func createJournalEntry(image: UIImage) -> JournalEntry? {
+    func createJournalEntry(image: UIImage, description: String) -> JournalEntry? {
         guard let image = selectedImage else {
             return nil
         }
@@ -39,15 +39,20 @@ class AddEntryViewController: UIViewController {
         guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
             return nil
         }
-        let journalEntry = JournalEntry(imageData: resizedImageData, entryName: entryTextField.text ?? "", date: Date())
+        let journalEntry = JournalEntry(imageData: resizedImageData, entryName: description, date: Date())
         return journalEntry
     }
     
     private func saveNewPhoto() {
+        guard let description = entryTextField.text, !description.isEmpty else {
+            dismiss(animated: true)
+            showAlert(title: "Missing Description", message: "Please fill out the necessary field.")
+            return
+        }
         guard let image = selectedImage else {
             fatalError("Couldn't access image, check save function")
         }
-        guard let journalEntry = createJournalEntry(image: image) else {
+        guard let journalEntry = createJournalEntry(image: image, description: description) else {
             fatalError("Couldn't access ImageObject, check save function")
         }
         do {
