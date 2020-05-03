@@ -12,9 +12,9 @@ import DataPersistence
 
 class AddEntryViewController: UIViewController {
     
-    @IBOutlet weak var journalEntryTextView: UITextView!
+ 
+    @IBOutlet weak var entryTextField: UITextField!
     @IBOutlet weak var entryImage: UIImageView!
-    @IBOutlet weak var entryTextView: UITextView!
     
     private var imagePickerController = UIImagePickerController()
     private let dataPersistence = DataPersistence<JournalEntry>(filename: "images.plist")
@@ -39,7 +39,7 @@ class AddEntryViewController: UIViewController {
         guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
             return nil
         }
-        let journalEntry = JournalEntry(imageData: resizedImageData, entryName: "", date: Date())
+        let journalEntry = JournalEntry(imageData: resizedImageData, entryName: entryTextField.text ?? "", date: Date())
         return journalEntry
     }
     

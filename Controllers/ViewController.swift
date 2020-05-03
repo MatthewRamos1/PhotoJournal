@@ -20,11 +20,7 @@ class ViewController: UIViewController {
             collectionView.reloadData()
         }
     }
-    private var selectedImage: UIImage? {
-        didSet {
-            
-        }
-    }
+    private var selectedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()

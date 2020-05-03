@@ -245,6 +245,7 @@
                     </view>
                     <connections>
                         <outlet property="entryImage" destination="eVG-Cg-uun" id="p6X-Fu-8rP"/>
+                        <outlet property="entryTextField" destination="Zg9-br-1Xa" id="4dV-qU-jkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYg-YN-6Nj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
