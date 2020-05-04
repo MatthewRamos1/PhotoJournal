@@ -112,6 +112,16 @@ class AddEntryViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
+    private func moveKeyboardDown() {
+        if keyboardIsVisable {
+            keyboardIsVisable = false
+            descriptionConstraint.constant += heightChanged
+            UIView.animate(withDuration: 0.7) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
         
     @IBAction func addGalleryImagePressed(_ sender: UIBarButtonItem) {
         imagePickerController.sourceType = .photoLibrary
@@ -145,7 +155,8 @@ extension AddEntryViewController: UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        moveKeyboardDown()
+        return textField.resignFirstResponder()
     }
     
 }
