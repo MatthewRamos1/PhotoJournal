@@ -13,6 +13,7 @@ enum ScrollSetting: String {
     case vertical = "Vertical"
 }
 
+
 class SettingsViewController: UITableViewController {
     
     

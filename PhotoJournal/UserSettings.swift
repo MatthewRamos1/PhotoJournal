@@ -12,15 +12,31 @@ class UserSettings {
     private init () {}
     private let standard = UserDefaults.standard
     static let shared = UserSettings()
-    private let scrollSetting = "ScrollSetting"
+    
+    struct SettingsKind {
+        static let scrollSetting = "ScrollSetting"
+        static let colorSetting = "ColorSetting"
+    }
+    
     func updateScrollSetting (scrollDirection: String) {
-        standard.set(scrollDirection, forKey: scrollSetting )
+        standard.set(scrollDirection, forKey: SettingsKind.scrollSetting)
     }
     
     func getScrollSetting () -> String? {
-        guard let scrollSetting = UserDefaults.standard.object(forKey: scrollSetting) as? String else {
+        guard let scrollSetting = UserDefaults.standard.object(forKey: SettingsKind.scrollSetting) as? String else {
             return nil
         }
         return scrollSetting
+    }
+    
+    func updateColorSetting(color: String) {
+        standard.set(color, forKey: SettingsKind.colorSetting)
+    }
+    
+    func getColorSetting() -> String? {
+        guard let colorSetting = UserDefaults.standard.object(forKey: SettingsKind.colorSetting) as? String else {
+            return nil
+        }
+        return colorSetting
     }
 }

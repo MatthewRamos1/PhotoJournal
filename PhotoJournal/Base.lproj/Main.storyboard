@@ -211,7 +211,7 @@
                                 </items>
                             </toolbar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eVG-Cg-uun">
-                                <rect key="frame" x="0.0" y="366" width="414" height="445.5"/>
+                                <rect key="frame" x="0.0" y="298" width="414" height="445.5"/>
                                 <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter photo description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lab-Ep-JYN">
@@ -221,7 +221,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter your photo description here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zg9-br-1Xa">
-                                <rect key="frame" x="20" y="189" width="374" height="168"/>
+                                <rect key="frame" x="20" y="189" width="374" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="YV9-ap-2v5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -238,7 +241,6 @@
                             <constraint firstItem="0KJ-2a-xf7" firstAttribute="trailing" secondItem="lab-Ep-JYN" secondAttribute="trailing" constant="20" id="bAf-VX-UJs"/>
                             <constraint firstItem="eVG-Cg-uun" firstAttribute="leading" secondItem="0KJ-2a-xf7" secondAttribute="leading" id="eHY-oi-zCt"/>
                             <constraint firstItem="eVG-Cg-uun" firstAttribute="trailing" secondItem="0KJ-2a-xf7" secondAttribute="trailing" id="tY1-7c-ynH"/>
-                            <constraint firstItem="24V-6b-Zcf" firstAttribute="top" secondItem="eVG-Cg-uun" secondAttribute="bottom" symbolic="YES" id="tzi-Bu-meo"/>
                             <constraint firstItem="24V-6b-Zcf" firstAttribute="bottom" secondItem="0KJ-2a-xf7" secondAttribute="bottom" id="uem-36-ug3"/>
                             <constraint firstItem="eVG-Cg-uun" firstAttribute="height" secondItem="OXq-V7-BKX" secondAttribute="height" multiplier="0.5" id="xLJ-GJ-n7Z"/>
                             <constraint firstItem="0KJ-2a-xf7" firstAttribute="trailing" secondItem="Zg9-br-1Xa" secondAttribute="trailing" constant="20" id="z7t-c1-KBf"/>
