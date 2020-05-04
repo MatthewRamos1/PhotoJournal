@@ -22,6 +22,20 @@ class ViewController: UIViewController {
         }
     }
     private var selectedImage: UIImage?
+    private var currentSetting = ScrollSetting.vertical {
+        didSet {
+            switch currentSetting {
+            case .vertical:
+                if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                    layout.scrollDirection = .vertical
+                }
+            case .horizontal:
+                if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                    layout.scrollDirection = .horizontal
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +46,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadEntries()
+        updateScrollDirection()
     }
     
     func loadEntries() {
@@ -40,6 +55,15 @@ class ViewController: UIViewController {
         } catch {
             fatalError("Couldnt load entries")
         }
+    }
+    
+    private func updateScrollDirection() {
+        if UserSettings.shared.getScrollSetting() == ScrollSetting.vertical.rawValue {
+            currentSetting = .vertical
+        } else {
+            currentSetting = .horizontal
+        }
+        
     }
 }
 

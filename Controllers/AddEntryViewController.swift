@@ -12,23 +12,28 @@ import DataPersistence
 
 class AddEntryViewController: UIViewController {
     
- 
+    
     @IBOutlet weak var entryTextField: UITextField!
     @IBOutlet weak var entryImage: UIImageView!
+    @IBOutlet weak var descriptionConstraint: NSLayoutConstraint!
     
     private var imagePickerController = UIImagePickerController()
     private let dataPersistence = DataPersistence<JournalEntry>(filename: "images.plist")
     private var selectedImage: UIImage? {
         didSet {
-            saveNewPhoto()
+            entryImage.image = selectedImage
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
+        entryTextField.delegate = self
     }
     
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        saveNewPhoto()
+    }
     func createJournalEntry(image: UIImage, description: String) -> JournalEntry? {
         guard let image = selectedImage else {
             return nil
@@ -45,17 +50,15 @@ class AddEntryViewController: UIViewController {
     
     private func saveNewPhoto() {
         guard let description = entryTextField.text, !description.isEmpty else {
-            dismiss(animated: true)
             showAlert(title: "Missing Description", message: "Please fill out the necessary field.")
             return
         }
         guard let image = selectedImage, let journalEntry = createJournalEntry(image: image, description: description) else {
             fatalError("Couldn't create journalEntry, check save function")
         }
-       
+        
         do {
             try dataPersistence.createItem(journalEntry)
-            dismiss(animated: true)
             showAlert(title: "Success", message: "Item was saved")
             entryTextField.text = ""
         } catch {
@@ -64,7 +67,7 @@ class AddEntryViewController: UIViewController {
         
         
     }
-    
+        
     @IBAction func addGalleryImagePressed(_ sender: UIBarButtonItem) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true)
@@ -89,5 +92,12 @@ extension AddEntryViewController: UINavigationControllerDelegate, UIImagePickerC
             return
         }
         selectedImage = image
+        dismiss(animated: true)
+    }
+}
+
+extension AddEntryViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

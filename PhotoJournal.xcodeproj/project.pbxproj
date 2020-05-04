@@ -21,6 +21,7 @@
 		0C5CFF3423DF51E9003AC357 /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */; };
 		0C9F557C245BA55D00BDB7F9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */; };
 		0C9F557E245EA55700BDB7F9 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F557D245EA55700BDB7F9 /* Date + Extensions.swift */; };
+		0C9F5581245FD33700BDB7F9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F5580245FD33700BDB7F9 /* UserSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		0C5CFF3323DF51E9003AC357 /* AddEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
 		0C9F557B245BA55D00BDB7F9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0C9F557D245EA55700BDB7F9 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
+		0C9F5580245FD33700BDB7F9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				0C51777F23DE9D0500DCBD4B /* Assets.xcassets */,
 				0C51778123DE9D0500DCBD4B /* LaunchScreen.storyboard */,
 				0C51778423DE9D0500DCBD4B /* Info.plist */,
+				0C9F5580245FD33700BDB7F9 /* UserSettings.swift */,
 			);
 			path = PhotoJournal;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				0C51777923DE9D0000DCBD4B /* SceneDelegate.swift in Sources */,
 				0C51778E23DEA01800DCBD4B /* JournalCell.swift in Sources */,
 				0C9F557C245BA55D00BDB7F9 /* SettingsViewController.swift in Sources */,
+				0C9F5581245FD33700BDB7F9 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,27 +8,48 @@
 
 import UIKit
 
+enum ScrollSetting: String {
+    case horizontal = "Horizontal"
+    case vertical = "Vertical"
+}
+
 class SettingsViewController: UITableViewController {
+    
     
     @IBOutlet weak var scrollDirectionLabel: UILabel!
     @IBOutlet weak var backgroundColorLabel: UILabel!
     
-    var verticalScroll = true
+    var scrollDirection = ScrollSetting.vertical {
+        didSet {
+            scrollDirectionLabel.text = scrollDirection.rawValue
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let temp = UserSettings.shared.getScrollSetting() else {
+            return
+        }
+        if temp == ScrollSetting.vertical.rawValue {
+            scrollDirection = ScrollSetting.vertical
+        } else {
+            scrollDirection = ScrollSetting.horizontal
+        }
+        
 
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            if verticalScroll {
-                scrollDirectionLabel.text = "Horizontal"
-                verticalScroll = false
+            if scrollDirection == ScrollSetting.vertical {
+                let scrollSetting = ScrollSetting.horizontal.rawValue
+                UserSettings.shared.updateScrollSetting(scrollDirection: scrollSetting)
+                scrollDirection = ScrollSetting.horizontal
             } else {
-                scrollDirectionLabel.text = "Vertical"
-                verticalScroll = true
+                let scrollSetting = ScrollSetting.vertical.rawValue
+                UserSettings.shared.updateScrollSetting(scrollDirection: scrollSetting)
+                scrollDirection = ScrollSetting.vertical
             }
         default:
             backgroundColorLabel.text = "temp"
