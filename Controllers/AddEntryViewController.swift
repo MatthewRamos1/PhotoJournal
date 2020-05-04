@@ -13,6 +13,7 @@ import DataPersistence
 class AddEntryViewController: UIViewController {
     
     
+    @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var entryTextField: UITextField!
     @IBOutlet weak var entryImage: UIImageView!
     @IBOutlet weak var descriptionConstraint: NSLayoutConstraint!
@@ -95,7 +96,7 @@ class AddEntryViewController: UIViewController {
         guard let keyboardFrame = notification.userInfo?[ "UIKeyboardFrameBeginUserInfoKey"] as? CGRect else {
             return
         }
-        moveKeyboardUp(keyboardFrame.size.height + 10)
+        moveKeyboardUp(keyboardFrame.size.height / 3.1)
     }
     
     @objc
@@ -104,6 +105,7 @@ class AddEntryViewController: UIViewController {
     }
     
     private func moveKeyboardUp(_ height: CGFloat) {
+        instructionLabel.isHidden = true
         if keyboardIsVisable { return }
         keyboardIsVisable = true
         descriptionConstraint.constant -= height
@@ -114,6 +116,7 @@ class AddEntryViewController: UIViewController {
     }
     
     private func moveKeyboardDown() {
+        instructionLabel.isHidden = false
         if keyboardIsVisable {
             keyboardIsVisable = false
             descriptionConstraint.constant += heightChanged
