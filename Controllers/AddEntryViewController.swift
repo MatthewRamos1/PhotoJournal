@@ -65,7 +65,8 @@ class AddEntryViewController: UIViewController {
             return
         }
         guard let image = selectedImage, let journalEntry = createJournalEntry(image: image, description: description) else {
-            fatalError("Couldn't create journalEntry, check save function")
+            showAlert(title: "Missing Image", message: "Please select an image.")
+            return
         }
         
         do {

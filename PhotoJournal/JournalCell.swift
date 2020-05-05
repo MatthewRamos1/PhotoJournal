@@ -17,6 +17,7 @@ class JournalCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var entryNameLabel: UILabel!
     @IBOutlet weak var dateNameLabel: UILabel!
+    public var indexVal = 0
     
     weak var delegate: JournalCellDelegate?
     

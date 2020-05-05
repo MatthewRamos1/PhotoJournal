@@ -122,6 +122,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.delegate = self
         let entry = entries[indexPath.row]
         cell.configureCell(journalEntry: entry)
+        cell.indexVal = indexPath.row
         return cell
     }
 }
@@ -140,10 +141,16 @@ extension ViewController: JournalCellDelegate {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         present(alertController, animated: true)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alertAction in
-            self?.deleteEntry(1)
+            self?.deleteEntry(cell.indexVal)
+            self?.loadEntries()
+        }
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self] alertAction in
+            self?.editEntry()
+            self?.loadEntries()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)
+        alertController.addAction(editAction)
         alertController.addAction(cancelAction)
     }
 }
