@@ -37,10 +37,7 @@ class JournalCell: UICollectionViewCell {
     
     @objc
     private func longPressAction(gesture: UILongPressGestureRecognizer) {
-        if gesture.state ==  .began {
-            gesture.state = .cancelled
-            return
-        }
+        delegate?.didLongPress(cell: self)
         
     }
     

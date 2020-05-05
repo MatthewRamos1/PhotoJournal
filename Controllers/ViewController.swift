@@ -37,6 +37,21 @@ class ViewController: UIViewController {
         }
     }
     
+    private var currentBackgroundColor = Color.white {
+        didSet {
+            switch currentBackgroundColor {
+            case .white:
+                collectionView.backgroundColor = .white
+            case .red:
+                collectionView.backgroundColor = .systemRed
+            case .teal:
+                collectionView.backgroundColor = .systemTeal
+            case .yellow:
+                collectionView.backgroundColor = .systemYellow
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -47,6 +62,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         loadEntries()
         updateScrollDirection()
+        updateColor()
     }
     
     func loadEntries() {
@@ -57,13 +73,40 @@ class ViewController: UIViewController {
         }
     }
     
+    func deleteEntry(_ val: Int) {
+        do {
+            try dataPersistence.deleteItem(at: val)
+        } catch {
+            showAlert(title: "Error", message: "Couldn't delete item")
+        }
+    }
+    
+    func editEntry() {
+        do {
+            
+        }
+    }
+    
     private func updateScrollDirection() {
         if UserSettings.shared.getScrollSetting() == ScrollSetting.vertical.rawValue {
             currentSetting = .vertical
         } else {
             currentSetting = .horizontal
         }
-        
+    }
+    
+    private func updateColor() {
+        let colorVal = UserSettings.shared.getColorSetting()
+        switch colorVal {
+        case Color.white.rawValue:
+            currentBackgroundColor = .white
+        case Color.red.rawValue:
+            currentBackgroundColor = .red
+        case Color.teal.rawValue:
+            currentBackgroundColor = .teal
+        default:
+            currentBackgroundColor = .yellow
+        }
     }
 }
 
@@ -96,7 +139,9 @@ extension ViewController: JournalCellDelegate {
     func didLongPress(cell: JournalCell) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         present(alertController, animated: true)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alertAction in
+            self?.deleteEntry(1)
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)

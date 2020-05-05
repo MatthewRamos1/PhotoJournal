@@ -13,6 +13,13 @@ enum ScrollSetting: String {
     case vertical = "Vertical"
 }
 
+enum Color: String {
+    case white = "White"
+    case red = "Red"
+    case teal = "Teal"
+    case yellow = "Yellow"
+}
+
 
 class SettingsViewController: UITableViewController {
     
@@ -25,20 +32,18 @@ class SettingsViewController: UITableViewController {
             scrollDirectionLabel.text = scrollDirection.rawValue
         }
     }
+    
+    var backgroundColor = Color.white {
+        didSet {
+            backgroundColorLabel.text = backgroundColor.rawValue
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let temp = UserSettings.shared.getScrollSetting() else {
-            return
-        }
-        if temp == ScrollSetting.vertical.rawValue {
-            scrollDirection = ScrollSetting.vertical
-        } else {
-            scrollDirection = ScrollSetting.horizontal
-        }
-        
-
+        getSettings()
     }
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
@@ -53,8 +58,47 @@ class SettingsViewController: UITableViewController {
                 scrollDirection = ScrollSetting.vertical
             }
         default:
-            backgroundColorLabel.text = "temp"
+            switch backgroundColor {
+            case Color.white:
+                UserSettings.shared.updateColorSetting(color: Color.red.rawValue)
+                backgroundColor = Color.red
+            case Color.red:
+                UserSettings.shared.updateColorSetting(color: Color.teal.rawValue)
+                backgroundColor = Color.teal
+            case Color.teal:
+                UserSettings.shared.updateColorSetting(color: Color.yellow.rawValue)
+                backgroundColor = Color.yellow
+            case Color.yellow:
+                UserSettings.shared.updateColorSetting(color: Color.white.rawValue)
+                backgroundColor = Color.white
+            }
         }
     }
-
-}
+    
+    private func getSettings() {
+        guard let tempDirection = UserSettings.shared.getScrollSetting() else {
+            return
+        }
+        if tempDirection == ScrollSetting.vertical.rawValue {
+            scrollDirection = ScrollSetting.vertical
+        } else {
+            scrollDirection = ScrollSetting.horizontal
+        }
+        
+        guard let tempColor =
+            UserSettings.shared.getColorSetting() else {
+                return
+        }
+        switch tempColor {
+        case Color.white.rawValue:
+            backgroundColor = Color.white
+        case Color.red.rawValue:
+            backgroundColor = Color.red
+        case Color.teal.rawValue:
+            backgroundColor = Color.teal
+        default:
+            backgroundColor = Color.yellow
+            
+            }
+        }
+    }
