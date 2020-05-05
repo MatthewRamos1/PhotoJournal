@@ -14,6 +14,6 @@ struct JournalEntry: Writeable {
     let imageData: Data
     let entryName: String
     let date: Date
-    let identifier = UUID().uuidString
+    let identifier: String
     
 }

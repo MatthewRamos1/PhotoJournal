@@ -189,13 +189,13 @@
         <!--Add Entry View Controller-->
         <scene sceneID="UcL-Da-MUQ">
             <objects>
-                <viewController id="seL-qb-EN5" customClass="AddEntryViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddEntryViewController" id="seL-qb-EN5" customClass="AddEntryViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OXq-V7-BKX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24V-6b-Zcf">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="Item" image="photo.fill.on.rectangle.fill" catalog="system" id="gEu-Ps-NTb" userLabel="Add From Gallery">
                                         <connections>

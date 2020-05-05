@@ -81,10 +81,13 @@ class ViewController: UIViewController {
         }
     }
     
-    func editEntry() {
-        do {
-            
+    func editEntry(entry: JournalEntry, val: Int) {
+    guard let addEntryVC = self.storyboard?.instantiateViewController(identifier: "AddEntryViewController") as? AddEntryViewController else {
+        fatalError("Couldn't instantiate AddEntryVC, check edit entry")
         }
+        addEntryVC.selectedEntry = entry
+        addEntryVC.index = val
+        show(addEntryVC, sender: self)
     }
     
     private func updateScrollDirection() {
@@ -144,8 +147,12 @@ extension ViewController: JournalCellDelegate {
             self?.deleteEntry(cell.indexVal)
             self?.loadEntries()
         }
+        
         let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self] alertAction in
-            self?.editEntry()
+            guard let entry = self?.entries[cell.indexVal] else {
+                return
+            }
+            self?.editEntry(entry: entry, val: cell.indexVal)
             self?.loadEntries()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

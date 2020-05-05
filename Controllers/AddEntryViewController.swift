@@ -22,6 +22,8 @@ class AddEntryViewController: UIViewController {
     private let dataPersistence = DataPersistence<JournalEntry>(filename: "images.plist")
     private var heightChanged: CGFloat = 0.0
     private var keyboardIsVisable = false
+    public var index: Int?
+    public var selectedEntry: JournalEntry?
     private var selectedImage: UIImage? {
         didSet {
             entryImage.image = selectedImage
@@ -32,6 +34,10 @@ class AddEntryViewController: UIViewController {
         super.viewDidLoad()
         imagePickerController.delegate = self
         entryTextField.delegate = self
+        if let entry = selectedEntry {
+            entryTextField.text = entry.entryName
+            selectedImage = UIImage(data: entry.imageData)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +51,8 @@ class AddEntryViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         saveNewPhoto()
     }
-    func createJournalEntry(image: UIImage, description: String) -> JournalEntry? {
+    
+    func createJournalEntry(image: UIImage, description: String, identifier: String?) -> JournalEntry? {
         guard let image = selectedImage else {
             return nil
         }
@@ -55,7 +62,7 @@ class AddEntryViewController: UIViewController {
         guard let resizedImageData = resizeImage.jpegData(compressionQuality: 1.0) else {
             return nil
         }
-        let journalEntry = JournalEntry(imageData: resizedImageData, entryName: description, date: Date())
+        let journalEntry = JournalEntry(imageData: resizedImageData, entryName: description, date: Date(), identifier: identifier ?? UUID().uuidString )
         return journalEntry
     }
     
@@ -64,21 +71,26 @@ class AddEntryViewController: UIViewController {
             showAlert(title: "Missing Description", message: "Please fill out the necessary field.")
             return
         }
-        guard let image = selectedImage, let journalEntry = createJournalEntry(image: image, description: description) else {
+        guard let image = selectedImage, let journalEntry = createJournalEntry(image: image, description: description, identifier: selectedEntry?.identifier) else {
             showAlert(title: "Missing Image", message: "Please select an image.")
             return
         }
         
-        do {
-            try dataPersistence.createItem(journalEntry)
-            showAlert(title: "Success", message: "Item was saved")
-            entryTextField.text = ""
-        } catch {
-            fatalError("Couldn't create item, check save function")
+        if let entry = selectedEntry {
+            dataPersistence.update(entry, with: journalEntry)
+        } else {
+            do {
+                try dataPersistence.createItem(journalEntry)
+                showAlert(title: "Success", message: "Item was saved")
+                entryTextField.text = ""
+            } catch {
+                fatalError("Couldn't create item, check save function")
+            }
         }
         
         
     }
+    
     
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
