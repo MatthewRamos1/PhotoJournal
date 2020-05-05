@@ -19,7 +19,7 @@ class AddEntryViewController: UIViewController {
     @IBOutlet weak var descriptionConstraint: NSLayoutConstraint!
     
     private var imagePickerController = UIImagePickerController()
-    private let dataPersistence = DataPersistence<JournalEntry>(filename: "images.plist")
+    public var dataPersistence: DataPersistence<JournalEntry>?
     private var heightChanged: CGFloat = 0.0
     private var keyboardIsVisable = false
     public var index: Int?
@@ -76,11 +76,12 @@ class AddEntryViewController: UIViewController {
             return
         }
         
-        if let entry = selectedEntry {
-            dataPersistence.update(entry, with: journalEntry)
+        if selectedEntry != nil {
+            dataPersistence?.update(journalEntry, at: index!)
+            navigationController?.popViewController(animated: true)
         } else {
             do {
-                try dataPersistence.createItem(journalEntry)
+                try dataPersistence?.createItem(journalEntry)
                 showAlert(title: "Success", message: "Item was saved")
                 entryTextField.text = ""
             } catch {

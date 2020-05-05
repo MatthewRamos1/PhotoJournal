@@ -65,6 +65,15 @@ class ViewController: UIViewController {
         updateColor()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddEntrySegue" {
+            guard let addEntryVC = segue.destination as? AddEntryViewController else {
+                fatalError()
+            }
+            addEntryVC.dataPersistence = dataPersistence
+    }
+    }
+    
     func loadEntries() {
         do {
             try entries = dataPersistence.loadItems()
@@ -87,6 +96,7 @@ class ViewController: UIViewController {
         }
         addEntryVC.selectedEntry = entry
         addEntryVC.index = val
+        addEntryVC.dataPersistence = dataPersistence
         show(addEntryVC, sender: self)
     }
     
